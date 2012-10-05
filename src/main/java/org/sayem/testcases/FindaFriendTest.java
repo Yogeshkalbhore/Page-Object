@@ -18,12 +18,10 @@ public class FindaFriendTest {
 		if(!TestUtil.isExecutable("FindaFriendTest", Page.xls1))
 			 throw new SkipException("Runmode set to NO");
 		LandingPage landingPage=null;
-		// logged in
 		if(!Page.isLoggedIn){
 			LoginPage loginPage = new LoginPage();
 			landingPage= loginPage.doLogin();
 		}else{
-		// i am logged in
 			landingPage =  Page.topMenu.gotoLandingPage();
 		}
 		MyProfilePage prof = landingPage.gotoProfile();

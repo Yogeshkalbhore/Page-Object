@@ -27,19 +27,14 @@ public class Page {
 
 	public Page(){
 		if(driver==null){
-		// initialize the properties file
 		CONFIG= new Properties();
 		OR = new Properties();
 		try{
-			// config
 			FileInputStream fs = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\sayem\\config\\config.properties");
 			CONFIG.load(fs);
-			
-			// OR
 			fs = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\sayem\\config\\OR.properties");
 			OR.load(fs);
 			}catch(Exception e){
-				// error
 				return;
 		}
 		
@@ -52,29 +47,24 @@ public class Page {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\ChromeDriver\\chromedriver.exe");
 		    driver=new ChromeDriver();
 		}
-		// implicit wait for the whole app
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		topMenu = new TopMenu();
 		
 	}
 }
-	// click
 	public void click(String xpathKey){
 		try{
 	        driver.findElement(By.xpath(OR.getProperty(xpathKey))).click();
 		}catch(Exception e){
 			System.out.println("error");
 			e.printStackTrace();
-			// report error
 		}
 	}
-	// input
 	public void input(String xpathKey, String text){
 		try{
 		driver.findElement(By.xpath(OR.getProperty(xpathKey))).sendKeys(text);
 		}catch(Exception e){
-			// report error
 			e.printStackTrace();
 		}
 	}
@@ -87,8 +77,8 @@ public class Page {
 		}
 		
 		return true;
-	}			
-	// finds the link on page
+	}
+
 	public boolean isLinkPresent(String linkText){
 		try{
 			driver.findElement(By.linkText(linkText));
@@ -104,7 +94,6 @@ public class Page {
 	    try {
 			FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir")+"\\screenshots\\"+fileName));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

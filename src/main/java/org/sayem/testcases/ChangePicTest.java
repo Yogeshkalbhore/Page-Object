@@ -15,7 +15,6 @@ public class ChangePicTest {
 		if(!TestUtil.isExecutable("ChangePicTest", Page.xls1))
 			 throw new SkipException("Runmode set to NO");
 		LandingPage landingPage=null;
-		// logged in
 		if(!Page.isLoggedIn){
 			LoginPage loginPage = new LoginPage();
 			landingPage= loginPage.doLogin();
@@ -24,7 +23,6 @@ public class ChangePicTest {
 		}
 		
 		MyProfilePage profilePage = landingPage.gotoProfile();
-		//profilePage.changePic("");
 	}
 
 }
