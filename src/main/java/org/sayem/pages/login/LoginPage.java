@@ -1,17 +1,9 @@
 package org.sayem.pages.login;
-
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.sayem.base.Page;
+import org.sayem.pages.inbox.LandingPage;
 import org.testng.Assert;
 
-import com.qtpselenium.facebook.base.Page;
-import com.qtpselenium.facebook.pages.inbox.LandingPage;
-import com.qtpselenium.facebook.pages.inbox.TopMenu;
-import com.qtpselenium.util.ErrorUtil;
-
-public class LoginPage extends Page{
-	// null - if login is not success
-	// LandingPage - if login is success
+public class LoginPage extends Page {
 	public LandingPage doLogin(String userName,String password){
 		try{
 			Assert.assertEquals("XXXWelcome to Facebook � Log in, sign up or learn more", driver.getTitle());
@@ -27,19 +19,13 @@ public class LoginPage extends Page{
 			return new LandingPage();
 		else 
 			return null;
-		
-		// initialize TopMenu
-		//topMenu = new TopMenu();
 	}
-	// default - correct , username password
+
 	public LandingPage doLogin(){
-		
 		return doLogin(CONFIG.getProperty("defaultUserName"),CONFIG.getProperty("defaultPassword"));
 	}
-	
 	
 	public void doRegister(){
 		
 	}
-
 }

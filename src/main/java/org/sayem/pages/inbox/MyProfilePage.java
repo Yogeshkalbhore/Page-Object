@@ -1,8 +1,7 @@
 package org.sayem.pages.inbox;
+import org.sayem.base.Page;
 
-import com.qtpselenium.facebook.base.Page;
-
-public class MyProfilePage extends Page{
+public class MyProfilePage extends Page {
 	
 	
 	// change your pic on facebook

@@ -1,28 +1,22 @@
 package org.sayem.testcases;
-// if test fails - you need report error and continue
-// take screenshot
+
 import java.util.Hashtable;
 
+import org.sayem.base.Page;
+import org.sayem.pages.inbox.LandingPage;
+import org.sayem.pages.login.LoginPage;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.qtpselenium.facebook.base.Page;
-import com.qtpselenium.facebook.pages.inbox.LandingPage;
-import com.qtpselenium.facebook.pages.login.LoginPage;
-import com.qtpselenium.util.ErrorUtil;
-import com.qtpselenium.util.TestUtil;
-
 public class LoginTest {
 
-	
 	@Test(dataProvider="getData")
 	public void loginTest(Hashtable<String,String> data){
 		
-		
 		// check the runmode of test case
-		if(!TestUtil.isExecutable("LoginTest",Page.xls1))
+		if(!TestUtil.isExecutable("LoginTest", Page.xls1))
 		 throw new SkipException("Runmode set to NO");
 		
 		// check runmode for data set
@@ -65,15 +59,10 @@ public class LoginTest {
 		else
 		 Page.isLoggedIn=false;
 
-		
-
 	}
 	
 	@DataProvider
 	public Object[][] getData(){
 		return TestUtil.getData("LoginTest", Page.xls1);
 	}
-	
-	
-
 }
