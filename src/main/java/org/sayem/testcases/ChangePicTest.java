@@ -4,6 +4,7 @@ import org.sayem.base.Page;
 import org.sayem.pages.inbox.LandingPage;
 import org.sayem.pages.inbox.MyProfilePage;
 import org.sayem.pages.login.LoginPage;
+import org.sayem.util.TestUtil;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 
