@@ -1,9 +1,9 @@
 package org.sayem.util;
 
-import com.sayem.testcases.TestBase;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.sayem.base.Page;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public class TestUtil {
     }
 
     public static void takeScreenShot(String fileName) {
-        File srcFile = ((TakesScreenshot)(TestBase.driver)).getScreenshotAs(OutputType.FILE);
+        File srcFile = ((TakesScreenshot)(Page.driver)).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(srcFile, new File("/screenshots/" + fileName + ".jpg"));
         } catch (IOException e) {
